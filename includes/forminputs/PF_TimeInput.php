@@ -70,7 +70,7 @@ class PFTimeInput extends PFFormInput {
             $hour = '00';
             $minute = '00';
             $second = '00'; // default at least this value
-            $millisecond = '00';
+            $millisecond = '000';
 
         }
 
