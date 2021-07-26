@@ -49,6 +49,7 @@ class PFFormPrinter {
 		$this->registerInputType( 'PFDatePickerInput' );
 		$this->registerInputType( 'PFDateTimePicker' );
 		$this->registerInputType( 'PFDateTimeInput' );
+        $this->registerInputType( 'PFTimeInput' );
 		$this->registerInputType( 'PFYearInput' );
 		$this->registerInputType( 'PFCheckboxInput' );
 		$this->registerInputType( 'PFDropdownInput' );
@@ -687,7 +688,7 @@ END;
 		} elseif ( count( $value ) == 2 ) {
 			return PFUtils::getWordForYesOrNo( true );
 		// if it's 3 or greater, assume it's a date or datetime
-		} elseif ( count( $value ) >= 3 ) {
+		} elseif ( count( $value ) == 3 || count( $value ) >= 6 ) {
 			$month = $value['month'];
 			$day = $value['day'];
 			if ( $day !== '' ) {
@@ -758,7 +759,33 @@ END;
 					return $new_value;
 				}
 			}
-		}
+		} elseif ( count( $value ) == 4 ) {
+            $hour = $minute = $second = $millisecond = null;
+            $new_value = '';
+            if ( isset( $value['hour'] ) ) {
+                $hour = $value['hour'];
+            }
+            if ( isset( $value['minute'] ) ) {
+                $minute = $value['minute'];
+            }
+            if ( isset( $value['second'] ) ) {
+                $second = $value['second'];
+            }
+            if ( isset( $value['millisecond'] ) ) {
+                $millisecond = $value['millisecond'];
+            }
+
+            if ( $hour !== null ) {
+                $new_value .= str_pad( intval( substr( $hour, 0, 2 ) ), 2, '0', STR_PAD_LEFT ) . ":" . str_pad( intval( substr( $minute, 0, 2 ) ), 2, '0', STR_PAD_LEFT );
+            }
+            if ( $second !== null ) {
+                $new_value .= ":" . str_pad( intval( substr( $second, 0, 2 ) ), 2, '0', STR_PAD_LEFT );
+            }
+            if ( $millisecond !== null ) {
+                $new_value .= "." . str_pad( intval( substr( $millisecond, 0, 3 ) ), 3, '0', STR_PAD_RIGHT );
+            }
+            return $new_value;
+        }
 		return '';
 	}
 

@@ -143,6 +143,7 @@
 		"PFTimePickerInput": "includes/forminputs/PF_TimePickerInput.php",
 		"PFDateTimePicker": "includes/forminputs/PF_DateTimePicker.php",
 		"PFDateTimeInput": "includes/forminputs/PF_DateTimeInput.php",
+		"PFTimeInput": "includes/forminputs/PF_TimeInput.php",
 		"PFYearInput": "includes/forminputs/PF_YearInput.php",
 		"PFTreeInput": "includes/forminputs/PF_TreeInput.php",
 		"PFTree": "includes/forminputs/PF_Tree.php",
