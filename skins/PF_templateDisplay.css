@@ -1,5 +1,5 @@
 table.infoboxTable {
-	width: 30em;
+	width: 20em;
 	font-size: 90%;
 	border: 1px solid #aaaaaa;
 	background-color: #f9f9f9;
@@ -9,7 +9,7 @@ table.infoboxTable {
 	padding: 0.2em;
 	float: right;
 	clear: right;
-	text-align: left;
+	text-align: center;
 }
 
 th.infoboxTitle {

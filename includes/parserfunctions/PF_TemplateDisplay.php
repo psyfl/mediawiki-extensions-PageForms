@@ -167,7 +167,8 @@ class PFTemplateDisplay {
 				$formattedFieldValue = $fieldValue;
 			}
 			if ( $format == 'table' || $format == 'infobox' ) {
-				$text .= "<tr><th>$fieldLabel</th><td>$formattedFieldValue</td></tr>\n";
+				//$text .= "<tr><th>$fieldLabel</th><td>$formattedFieldValue</td></tr>\n";
+				$text .= "<tr><th>$fieldLabel</th></tr><tr><td>$formattedFieldValue</td></tr>";
 			} elseif ( $format == 'sections' ) {
 				$text .= "<h2>$fieldLabel</h2>\n$formattedFieldValue\n\n";
 			} else {
